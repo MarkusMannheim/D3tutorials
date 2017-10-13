@@ -12,9 +12,9 @@
   </head>
   <body>
     <script>
-      d3.select("body")
-          .append("p")
-          .text("New paragraph!");
+      d3.csv("food.csv", function(data) {
+        console.log(data);
+      });
     </script>
   </body>
 </html>
