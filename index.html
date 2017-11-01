@@ -30,17 +30,20 @@
   		var svg = d3.select("body")
     				 .append("svg")
       				 .attr("width", w)
-      				 .attr("height", h);
+      				 .attr("height", h)
+               .style("fill", "lightgray");
 
   		//Load in GeoJSON data
-  		d3.json("us-states.json", function(json) {
+  		d3.json("ACT_Division_Boundaries", function(json) {
 
   			//Bind data and create one path per GeoJSON feature
   			svg.selectAll("path")
   			   .data(json.features)
   			   .enter().append("path")
     			   .attr("d", path)
-             .style("fill", "steelblue");
+             .style("fill", "steelblue")
+             .style("stroke", "white")
+             .style("stroke-width", 1);
   		});
 		</script>
 	</body>
