@@ -34,12 +34,10 @@
                .style("fill", "lightgray");
 
   		//Load in GeoJSON data
-  		d3.json("ACT_Division_Boundaries", function(mapData) {
-        var features = mapData.features;
-
-  			//Bind data and create one path per GeoJSON feature
+  		d3.json("actDivisions.geojson", function(mapData) {
+        //Bind data and create one path per GeoJSON feature
   			svg.selectAll("path")
-  			   .data(features)
+  			   .data(mapData.features)
   			   .enter().append("path")
     			   .attr("d", path)
              .style("fill", "steelblue")
