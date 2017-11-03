@@ -40,10 +40,10 @@
       //Load in agriculture data
       d3.csv("us-ag-productivity-2004.csv", function(data) {
 
-        //Set input domain for color scales
+        //Set input domain for colour scales
         colour.domain([
-          d3.min(data, function(d) { return d.value; });
-          d3.max(data, function(d) { return d.value; });
+          d3.min(data, function(d) { return d.value; }),
+          d3.max(data, function(d) { return d.value; })
         ]);
 
         //Load in GeoJSON data
