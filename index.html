@@ -18,8 +18,9 @@
   		var h = 500;
 
       //Define map projection
-			var projection = d3.geoMercator()
-								    .translate([w / 2, h / 2]);
+			var projection = d3.geoAlbersUsa()
+								    .translate([w / 2, h / 2])
+                    .scale([500]);
 
   		//Define default path generator
   		var path = d3.geoPath()
@@ -33,7 +34,7 @@
                .style("background", "lightgray");
 
   		//Load in GeoJSON data
-  		d3.json("actDivisions.geojson", function(mapData) {
+  		d3.json("us-states.json", function(mapData) {
         //Bind data and create one path per GeoJSON feature
   			svg.selectAll("path")
   			   .data(mapData.features)
