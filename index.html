@@ -38,12 +38,12 @@
                .style("background", "lightgray");
 
       //Load in agriculture data
-      d3.csv("us-ag-productivity-2004.csv", function(data) {
+      d3.csv("us-ag-productivity-2004.csv", function(agData) {
 
         //Set input domain for colour scales
         colour.domain([
-          d3.min(data, function(d) { return d.value; }),
-          d3.max(data, function(d) { return d.value; })
+          d3.min(agData, function(d) { return d.value; console.log(d.value); }),
+          d3.max(agData, function(d) { return d.value; console.log(d.value); })
         ]);
 
         //Load in GeoJSON data
@@ -51,13 +51,13 @@
 
           //Merge the ag. data and GeoJSON
           //Loop through once for each ag. data value
-          for (var i = 0; i < data.length; i++) {
+          for (var i = 0; i < agData.length; i++) {
 
             //Grab state name
-            var dataState = data[i].state;
+            var dataState = agData[i].state;
 
             //Grab data value, and convert from string to value
-            var dataValue = parseFloat(data[i].value);
+            var dataValue = parseFloat(agData[i].value);
 
             //Find the corresponding state inside the GeoJSON
             for (var j = 0; j < mapData.length; j++) {
