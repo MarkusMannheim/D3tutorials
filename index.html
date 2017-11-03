@@ -99,9 +99,6 @@
 
           //Load in cities data
           d3.csv("us-cities.csv", function(data) {
-            data.forEach(function(d) {
-              d.population = +d.population;
-            });
 
             svg.selectAll("circle")
                .data(data)
@@ -113,7 +110,7 @@
                    return projection([d.lon, d.lat])[1];
                  })
                  .attr("r", function(d) {
-                   return Math.sqrt(d.population) * 0.00004;
+                   return Math.sqrt(parseInt(d.population) * 0.00004);
                  })
                  .style("fill", "yellow")
                  .style("opacity", 0.75);
