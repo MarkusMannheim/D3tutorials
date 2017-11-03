@@ -61,11 +61,11 @@
 
             //Find the corresponding state inside the GeoJSON
             for (var j = 0; j < mapData.length; j++) {
-              var jsonState = json.features[j].properties.name;
+              var jsonState = mapData.features[j].properties.name;
               if (dataState == jsonState) {
 
                 //Copy the data value into the JSON
-                json.features[j].properties.value = dataValue;
+                mapData.features[j].properties.value = dataValue;
 
                 //Stop looking through the JSON
                 break;
