@@ -41,7 +41,9 @@
 				   .data(mapData.features)
 				   .enter().append("path")
 					   .attr("d", path)
-					   .style("fill", "steelblue");
+					   .style("fill", "steelblue")
+             .style("stroke", "white")
+             .style("stroke-width", 2);
       });
 		</script>
 	</body>
